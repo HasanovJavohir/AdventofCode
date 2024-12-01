@@ -1,9 +1,48 @@
 Day 1 -> Historian Hysteria
 Steps to solve this problem are following:
   I...
-  1. Sorted LEFT LIST
-  2. Sorted RIGHT LIST
+  1. Sorted LEFT LIST with selectionsort algorithm
+  2. Sorted RIGHT LIST with selectionsort algorithm
   3. Found the distance between numbers whose indexs are same in both lists
    For example, left_list[0] - right_list[0] and so on
   4. Added the results of distances to new list
   5. Found the sum of that new list and got result
+
+
+Code:
+def findsmallest(arr):
+  smallest = arr[0]
+  smallest_index = 0
+  for i in range(1, len(arr)):
+    if arr[i] < smallest:
+      smallest = arr[i]
+      smallest_index = i
+  
+  return smallest_index
+  
+
+def selectionsort(arr):
+  newArr = []
+  for i in range(len(arr)):
+    smallest = findsmallest(arr)
+    newArr.append(arr.pop(smallest))
+  
+  return newArr
+
+left_nums = []
+right_nums = []
+distances = []  
+  
+for i in range(1000):
+  a,b = map(int,input().split())
+  left_nums.append(a)
+  right_nums.append(b)
+
+left_nums_sorted = selectionsort(left_nums)
+right_nums_sorted = selectionsort(right_nums)
+
+for i in range(1000):
+  x = abs(left_nums_sorted[i]-right_nums_sorted[i])
+  distances.append(x)
+
+print(sum(distances))
