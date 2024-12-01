@@ -1,0 +1,9 @@
+Day 1 -> Historian Hysteria
+Steps to solve this problem are following:
+  I...
+  1. Sorted LEFT LIST
+  2. Sorted RIGHT LIST
+  3. Found the distance between numbers whose indexs are same in both lists
+   For example, left_list[0] - right_list[0] and so on
+  4. Added the results of distances to new list
+  5. Found the sum of that new list and got result
